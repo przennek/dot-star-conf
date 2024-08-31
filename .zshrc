@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 
 # PATH
 export PATH=/opt/homebrew/bin/:$PATH
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # switch to mvim
 alias vim='nvim'
