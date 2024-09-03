@@ -26,10 +26,28 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 # aliases
 alias dd='sudo dd status=progress'
 
-alias pip='python -m "pip"'
+alias pip='python3 -m "pip"'
+alias python='python3'
 
 alias tarczf='function _tarczf() { tar cf - "$2" | pv -s $(($(du -sk "$2" | awk "{print \$1}") * 1024)) | pigz > "$1"; }; _tarczf'
 alias tarxzf='function _tarxzf() { pv -s $(($(du -sk "$1" | awk "{print \$1}") * 1024)) < "$1" | pigz -dc | tar xzf - -C "$2"; }; _tarxzf'
+
+alias tf='terraform'
+
+alias vim='nvim'
+
+alias virtualenv='python3 -m venv'
+
+# docker
+alias select-container="export CONTAINER=\$(docker ps -a | grep -v CONTAINER | fzf | cut -d \" \" -f 1)" # TODO: make it display currently selected container (maybe using tmux.conf?)
+alias select-active-container="export CONTAINER=\$(docker ps | grep -v CONTAINER | fzf | cut -d \" \" -f 1)" # TODO: make it display currently selected container (maybe using tmux.conf?)
+alias remove-image="(docker images | grep -v REPOSITORY | fzf | tr -s ' ' | cut -d ' ' -f 3) | xargs docker image rm "
+alias remove-buildx-cache="docker builder prune --filter type=exec.cachemount"
+alias buildkit-docker-build="DOCKER_BUILDKIT=1 docker build"
+
+# GPRC
+source ~/.gprc
+
 
 # SDKMAN! 
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -37,6 +55,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source <(fzf --zsh)
 
 # -- Use fd instead of fzf --
 

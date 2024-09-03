@@ -1,0 +1,134 @@
+" global settings
+
+set clipboard+=unnamed
+set gdefault
+set ignorecase
+set scrolloff=1
+set relativenumber
+
+"set number
+"set relativenumber
+
+
+" ============================================================================
+" Movement
+" ============================================================================
+
+" Scroll screen with the cursor
+noremap <C-j> gj<C-e>
+noremap <C-k> gk<C-y>1
+
+" Left / right
+noremap <C-h> h
+noremap <C-l> l
+
+" Insert mode
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+
+" Previous / next match
+noremap H ,
+noremap L ;
+
+" Home row beginning / end of line
+#noremap h ^
+#noremap l $
+
+" Previous / next word
+#noremap k #
+#noremap j *
+
+" ============================================================================
+" Editing
+" ============================================================================
+
+" Escape
+inoremap jk <Esc>`^
+inoremap <C-q> <Esc>`^
+noremap <C-q> <Esc>
+vnoremap <C-q> <Esc>
+cmap <C-q> <C-c>
+
+" Moving blocks of text in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Select all text
+map <Space>a ggVG
+
+" Copy until the end of the line
+noremap Y y$
+
+" Indent everything
+noremap <Space>I ggvG=
+
+" Indent selection in visual mode
+vnoremap <Space>i =
+
+" Indent the current line
+noremap <Space>i v=
+
+" Change current word - kill
+noremap K ciw
+
+" Change in double quotes
+noremap J ci"
+
+" Join lines
+nnoremap <Space>J J
+
+
+" ============================================================================
+" Editor control
+" ============================================================================
+
+" Enter the command-line mode
+noremap <CR> :
+tchitVisualTextObject)
+" Reload .ideavimrc
+nnoremap <Space>vs :source ~/.ideavimrc<CR>
+
+
+" ============================================================================
+" IDE actions
+" ============================================================================
+
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
+nnoremap U :action $Redo<CR>
+nnoremap <Space>sc :action GotoClass<CR>
+nnoremap <Space>sf :action GotoFile<CR>
+nnoremap <Space>sn :action GotoClass<CR>
+nnoremap <Space>d :action CloseContent<CR>
+nnoremap <Space>s. :action RecentFiles<CR>
+nnoremap <Space>k :action FileStructurePopup<CR>
+nnoremap <Space>h :action QuickJavaDoc<CR>
+nnoremap <Space>q :action Switcher<CR>
+nnoremap <Space>g :action Generate<CR>
+"nnoremap <Space>w :action com.mnw.tabmover.actions.MoveTabToNextWindow<CR>
+"nnoremap <Space>s :action com.mnw.tabmover.actions.MoveTabToPreviousWindow<CR>
+nnoremap <Space>sg :action FindInPath<CR>
+nnoremap gt :action NextProjectWindow<CR>
+nnoremap gT :action PreviousProjectWindow<CR>
+
+nnoremap <Space>sb :action ShowBookmarks<CR>
+nnoremap <Space>ha :action ToggleBookmark<CR>
+nnoremap <Space>hr :action ToggleBookmark<CR>
+
+
+
+set ruler               "always show actual position" 
+
+nnoremap / :action Find<CR>
+
+nnoremap <Space>n :action ShowNavBar<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+# fixes ctrl+c opening vim
+sethandler <C-C> n-v:ide i:ide
+
