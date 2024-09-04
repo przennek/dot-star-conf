@@ -112,12 +112,9 @@ nnoremap <Space>g :action Generate<CR>
 nnoremap <Space>sg :action FindInPath<CR>
 nnoremap gt :action NextProjectWindow<CR>
 nnoremap gT :action PreviousProjectWindow<CR>
-
 nnoremap <Space>sb :action ShowBookmarks<CR>
-nnoremap <Space>ha :action ToggleBookmark<CR>
-nnoremap <Space>hr :action ToggleBookmark<CR>
-
-
+nnoremap <Space>pa :action ToggleBookmark<CR>
+nnoremap <Space>pr :action ToggleBookmark<CR>
 
 set ruler               "always show actual position" 
 
