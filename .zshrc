@@ -46,7 +46,7 @@ alias remove-buildx-cache="docker builder prune --filter type=exec.cachemount"
 alias buildkit-docker-build="DOCKER_BUILDKIT=1 docker build"
 
 # GPRC
-source ~/.gprc
+if [ -f ~/.gprc ] && source ~/.gprc
 
 
 # SDKMAN! 
