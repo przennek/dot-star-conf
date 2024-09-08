@@ -46,20 +46,21 @@ alias remove-buildx-cache="docker builder prune --filter type=exec.cachemount"
 alias buildkit-docker-build="DOCKER_BUILDKIT=1 docker build"
 
 # GPRC
-if [ -f ~/.gprc ] && source ~/.gprc
 
+if [ -f ~/.gprc ] && source ~/.gprc
 
 # SDKMAN! 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source <(fzf --zsh)
+[ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+else
+    source <(fzf --zsh)
+fi
 
 # -- Use fd instead of fzf --
-
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
