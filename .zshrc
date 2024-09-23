@@ -49,10 +49,6 @@ alias buildkit-docker-build="DOCKER_BUILDKIT=1 docker build"
 
 if [ -f ~/.gprc ] && source ~/.gprc
 
-# SDKMAN! 
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # fzf
 [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
@@ -77,3 +73,9 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
     fd --type=d --hidden --exclude .git . "$1"
 }
+
+# SDKMAN! 
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
