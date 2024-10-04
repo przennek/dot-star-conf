@@ -115,6 +115,7 @@ nnoremap gT :action PreviousProjectWindow<CR>
 nnoremap <Space>sb :action ShowBookmarks<CR>
 nnoremap <Space>pa :action ToggleBookmark<CR>
 nnoremap <Space>pr :action ToggleBookmark<CR>
+nnoremap <Space>rn :action RenameElement<CR>
 
 set ruler               "always show actual position" 
 
